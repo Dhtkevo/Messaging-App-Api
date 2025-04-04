@@ -22,3 +22,8 @@ export const createUserDB = async (username: string, password: string) => {
     },
   });
 };
+
+export const getUserByUsernameDB = async (username: string) => {
+  const user = await prisma.user.findUnique({ where: { username: username } });
+  return user;
+};

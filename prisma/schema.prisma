@@ -25,7 +25,7 @@ messages Message[]
 model Inbox {
   id       Int      @id                                           @default(autoincrement())
   messages Message[]
-  user     User     @relation(fields: [userId], references: [id])
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId   Int      @unique
 
 }
@@ -33,9 +33,9 @@ model Inbox {
 model Message {
   id      Int     @id                                           @default(autoincrement())
   text    String
-  inbox   Inbox   @relation(fields: [inboxId], references: [id])
+  inbox   Inbox   @relation(fields: [inboxId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   inboxId Int     @unique
-  user    User    @relation(fields: [userId], references: [id])
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId  Int     @unique
 
 }

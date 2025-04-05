@@ -1,7 +1,11 @@
 import type { Request, Response } from "express";
 
 import bcrypt from "bcryptjs";
-import { createUserDB, getUsernameById, updateUsernameDB } from "../db/queries";
+import {
+  createUserDB,
+  getUsernameById,
+  updateUsernameDB,
+} from "../db/queries.js";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 import type { ExtendedRequest } from "./inboxController";

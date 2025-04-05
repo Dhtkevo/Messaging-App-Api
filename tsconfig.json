@@ -15,18 +15,11 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
 
-    ///* Transpile with TypeScript */
-    "module": "NodeNext",
-    "outDir": "dist",
-    "rootDir": ".",
-
-    // /* If NOT transpiling with TypeScript: */
-    // "module": "Preserve",
-    // "noEmit": true,
+    /* If NOT transpiling with TypeScript: */
+    "module": "Preserve",
+    "noEmit": true,
 
     /* If your code doesn't run in the DOM: */
     "lib": ["es2022"]
-  },
-  "include": ["**/**.ts"],
-  "exclude": ["node_modules", "dist"]
+  }
 }

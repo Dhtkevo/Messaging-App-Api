@@ -1,4 +1,4 @@
-import { deleteMessageDB } from "../db/queries";
+import { deleteMessageDB } from "../db/queries.js";
 import type { Response, Request } from "express";
 import type { ExtendedRequest } from "./inboxController";
 import jwt from "jsonwebtoken";

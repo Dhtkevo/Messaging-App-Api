@@ -1,11 +1,11 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
-import { userRouter } from "./routes/userRouter.js";
-import { authRouter } from "./routes/authRouter.js";
+import { userRouter } from "./routes/userRouter";
+import { authRouter } from "./routes/authRouter";
 
 import type { Request, Response, NextFunction } from "express";
-import { messageRouter } from "./routes/messageRouter.js";
+import { messageRouter } from "./routes/messageRouter";
 
 const port = process.env.PORT;
 

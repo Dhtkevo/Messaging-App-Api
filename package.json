@@ -12,12 +12,14 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
-    "@types/jsonwebtoken": "^9.0.9"
+    "@types/jsonwebtoken": "^9.0.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   },
   "type": "module",
   "scripts": {
     "dev": "tsx --watch app.ts",
-    "prod": "node app.js",
-    "build": "npx tsc"
+    "start": "node ./build/app.js",
+    "build": "tsc ./app.ts --outDir build"
   }
 }

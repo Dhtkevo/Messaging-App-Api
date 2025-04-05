@@ -16,6 +16,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "tsx --watch app.ts"
+    "dev": "tsx --watch app.ts",
+    "prod": "node app.ts"
   }
 }

@@ -17,6 +17,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx --watch app.ts",
-    "prod": "node app.js"
+    "prod": "node app.js",
+    "build": "npx tsc"
   }
 }

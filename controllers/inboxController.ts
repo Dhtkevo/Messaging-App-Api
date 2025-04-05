@@ -1,12 +1,27 @@
 import { createMessageInboxDB, getInboxDB } from "../db/queries";
 import type { Request, Response } from "express";
+import jwt from "jsonwebtoken";
+import "dotenv/config";
 
-export const getInboxController = async (req: Request, res: Response) => {
-  const userId = Number(req.params.userId);
+export interface ExtendedRequest extends Request {
+  token?: string;
+}
 
-  const inbox = await getInboxDB(userId);
+export const getInboxController = async (
+  req: ExtendedRequest,
+  res: Response
+) => {
+  jwt.verify(req.token!, process.env.JWT_SECRET!, async (err, authData) => {
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      const userId = Number(req.params.userId);
 
-  res.json(inbox);
+      const inbox = await getInboxDB(userId);
+
+      res.json(inbox);
+    }
+  });
 };
 
 export const postMessagetoInboxController = async (

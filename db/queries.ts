@@ -49,3 +49,10 @@ export const getInboxDB = async (userId: number) => {
 export const deleteMessageDB = async (messageId: number) => {
   await prisma.message.delete({ where: { id: messageId } });
 };
+
+export const updateUsernameDB = async (userId: number, newUsername: string) => {
+  await prisma.user.update({
+    where: { id: userId },
+    data: { username: newUsername },
+  });
+};

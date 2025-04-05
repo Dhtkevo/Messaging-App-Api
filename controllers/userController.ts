@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 
 import bcrypt from "bcryptjs";
-import { createUserDB, getUsernameById } from "../db/queries";
+import { createUserDB, getUsernameById, updateUsernameDB } from "../db/queries";
 
 export const registerUserController = async (req: Request, res: Response) => {
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -17,4 +17,13 @@ export const getUserIdController = async (req: Request, res: Response) => {
   const username = await getUsernameById(userId);
 
   res.json(username);
+};
+
+export const updateUsernameController = async (req: Request, res: Response) => {
+  const userId = Number(req.body.userId);
+  const newUsername = req.body.newUsername;
+
+  await updateUsernameDB(userId, newUsername);
+
+  res.status(200).json({ message: "Username updated" });
 };

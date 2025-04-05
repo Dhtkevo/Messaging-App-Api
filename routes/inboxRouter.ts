@@ -9,4 +9,4 @@ export const inboxRouter = express.Router({ mergeParams: true });
 
 inboxRouter.get("/", verifyToken, getInboxController);
 
-inboxRouter.post("/", postMessagetoInboxController);
+inboxRouter.post("/", verifyToken, postMessagetoInboxController);

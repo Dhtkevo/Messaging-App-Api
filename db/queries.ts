@@ -45,3 +45,7 @@ export const getInboxDB = async (userId: number) => {
 
   return inbox?.inbox?.messages;
 };
+
+export const deleteMessageDB = async (messageId: number) => {
+  await prisma.message.delete({ where: { id: messageId } });
+};

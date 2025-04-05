@@ -28,6 +28,15 @@ export const getUserByUsernameDB = async (username: string) => {
   return user;
 };
 
+export const getUsernameById = async (userId: number) => {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: { username: true },
+  });
+
+  return user;
+};
+
 export const getInboxDB = async (userId: number) => {
   const inbox = await prisma.user.findUnique({
     where: { id: userId },

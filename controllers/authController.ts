@@ -22,8 +22,13 @@ export const authUserLoginController = async (req: Request, res: Response) => {
     return;
   }
 
-  jwt.sign({ user }, process.env.JWT_SECRET!, {}, (err, token) => {
-    res.status(200).json({ token });
-    return;
-  });
+  jwt.sign(
+    { user },
+    process.env.JWT_SECRET!,
+    { expiresIn: "30 minutes" },
+    (err, token) => {
+      res.status(200).json({ token });
+      return;
+    }
+  );
 };

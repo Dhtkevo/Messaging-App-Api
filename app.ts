@@ -18,7 +18,7 @@ app.use("/users", userRouter);
 app.use("/auth", authRouter);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err);
+  console.log(err);
   res.status(500).json(err);
 });
 

@@ -56,3 +56,24 @@ export const updateUsernameDB = async (userId: number, newUsername: string) => {
     data: { username: newUsername },
   });
 };
+
+export const createMessageInboxDB = async (
+  targetUsername: string,
+  sendingUserId: number,
+  text: string
+) => {
+  const user = await prisma.user.findUnique({
+    where: { username: targetUsername },
+    select: { inbox: true },
+  });
+
+  const createdMessage = await prisma.message.create({
+    data: {
+      text: text,
+      inboxId: user!.inbox!.id,
+      userId: sendingUserId,
+    },
+  });
+
+  return createdMessage;
+};

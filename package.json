@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx --watch app.ts",
-    "start": "node app.js",
+    "start": "node ./dist/app.js",
     "build": "tsc"
   }
 }
